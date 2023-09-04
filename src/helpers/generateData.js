@@ -2,13 +2,11 @@ const { faker } = require('@faker-js/faker');
 const _ = require('lodash');
 const fs = require('fs');
 
-// Function to generate random genres
 function generateGenres() {
   const genres = ['Action', 'Comedy', 'Drama', 'Sci-Fi', 'Fantasy', 'Thriller', 'Horror'];
   return _.sampleSize(genres, _.random(1, genres.length));
 }
 
-// Function to generate random credits
 function generateCredits(titleId) {
   const credits = ['Director', 'Producer', 'Screenwriter', 'Actor', 'Actress', 'Cinematographer', 'Film Editor', 'Production Designer', 'Costume Designer', 'Music Composer'];
   return {
@@ -20,7 +18,6 @@ function generateCredits(titleId) {
   };
 }
 
-// Function to generate random movie/series data
 function generateTitle() {
   return {
     id: faker.number.int(),
@@ -35,7 +32,6 @@ function generateTitle() {
   };
 }
 
-// Generate test data
 export function generateTestData(count) {
   const titles = [];
   const credits = [];
@@ -50,18 +46,6 @@ export function generateTestData(count) {
 
   return { titles, credits };
 }
-
-// Save test data to CSV files
-// function saveToCSV(data, filename) {
-//   const csvData = data.map((item) => Object.values(item).join(',')).join('\n');
-//   const blob = new Blob([csvData], { type: 'text/csv' });
-//   const url = window.URL.createObjectURL(blob);
-//   const a = document.createElement('a');
-//   a.href = url;
-//   a.download = filename;
-//   a.click();
-//   window.URL.revokeObjectURL(url);
-// }
 
 export function saveToCSV(data, filename) {
   const csvData = data.map((item) => Object.values(item).join(',')).join('\n');

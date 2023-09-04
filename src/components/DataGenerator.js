@@ -10,10 +10,7 @@ const DataGenerator = () => {
 
   useEffect(() => {
     if (isGenerating) {
-      // Generate synthetic data
-      const testData = generateTestData(100); // Generate 100+ entries for each dataset
-
-      // Save synthetic data to CSV files
+      const testData = generateTestData(100); 
       saveToCSV(testData.titles, 'titles.csv');
       saveToCSV(testData.credits, 'credits.csv');
 
